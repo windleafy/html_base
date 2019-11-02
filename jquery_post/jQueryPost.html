@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQueryPostTest1</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+</script>
+    
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        //console.log(document.getElementById("value1").value);
+        console.log (this.value);//通过点击按钮的value值判定，是否要做出响应；
+        if (this.value =='btn1'){
+            $.post("jQueryPost.php",{
+                name:document.getElementById("value1").value,
+                url:"www.baidu.com"
+            },
+            
+            function(data,status){
+                alert("数据: \n" + data + "\n状态: " + status);
+                document.getElementById("myp").innerHTML = data;
+            });
+        };
+    });
+    
+    $("mydiv").click(function(){
+        if(this.id=='div1'){
+            //console.log("this.id:"+this.id);
+            //console.log("this.value:"+getDivValue(this.id));
+            $.post("welcome.php",{
+                name:getDivValue(this.id),
+                url:"www.baidu.com"
+            },
+            function(data,status){
+                alert("数据: \n"+data+ "\n状态: "+status);
+            });
+            //location.href="welcome.php";
+        }
+        }
+    );
+});
+</script>
+
+</head>
+
+<body>
+
+<div>
+<button value="btn1">发送一个 HTTP POST 请求页面并获取返回内容</button>
+</div>
+<button value="btn2">无法发送 HTTP POST 请求页面并获取返回内容</button>
+<p id="myp"></p>
+    
+<div id="input1"><!--input-group会响应div点击-->
+  <div id="input2" class="input-group" value=""><span id="addon1" class="input-group-addon">@</span>
+    <input id="value1" type="text" class="form-control" placeholder="normal sized input group" aria-describedby="addon1" >
+  </div>
+</div>
+
+<mydiv id="div1" value="div1.value" >我是mydiv1，你好<br>我点跳转<br></mydiv>
+<mydiv id="div2" value="div2.value" >我是mydiv2，你好<br>我不跳转</mydiv>
+<block>
+</block>
+    
+</body>
+</html>
+
+
+<script>//为DIV设定value并取值
+function getDivValue(wind){
+    var t1=document.getElementById(wind);     
+    //alert(t1.value);//div 没有value属性，不能直接取值，直接取值值为空
+    //alert(t1.getAttribute("value"));
+    return(t1.getAttribute("value"));
+}
+    
+    
+</script>

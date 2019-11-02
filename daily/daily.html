@@ -1,0 +1,211 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
+    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" >
+    <script type="text/javascript"  rel="stylesheet" href="./bootstrap/js/bootstrap.min.js" ></script>
+    <script src="./js/jquery/jquery-3.4.1.min.js" ></script>
+    <script src="main.js" charset="utf-8"></script>
+    <style type="text/css">
+        body{
+            border: solid grey 2px;
+            border-radius: 16px;
+        }
+        h1{
+            font-size: 200px;
+        }
+        .left0{
+            /*background: grey;*/
+            height: 310px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        .right{
+            padding:3px
+            background: #FFB533;
+            height: 300px;
+            text-align: center;
+            padding-left: 0px;
+            padding-right: 0px;
+        }        
+        .left1{
+            border-right-style: groove;
+            border-width:1px;
+            padding: 3px;
+            height: 150px;
+        }         
+               
+        .left2{
+            border-top-style: groove;
+            border-right-style: groove;
+            border-width: 1px;
+            padding: 3px;
+            height: 160px;
+        }         
+        .bottom_des{
+            position: absolute;
+            border-top-style: groove;
+            padding: 3px;
+            font-size: 20;
+            width: 99%;
+            text-align:center;
+            left: 1px;
+            right: 0;
+        }   
+        .year{
+            width: 40px;
+            float: right;
+            font-size: 30;
+        }                                             
+        .month{
+            width: 25px;
+            float: right;
+        }        
+        .tianji{
+            margin-top: 0px;
+            width: 40px;
+            font-size: 24;
+            float: right;
+        }
+        .tianjidec{
+            width: 28px;
+            float: right;
+            margin-top: 12px;
+            margin-right: auto;
+            margin-left:  auto;
+            margin-bottom: 0;
+            writing-mode: vertical-lr;   
+        }        
+        .shiyi{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            font-size: 25;
+            color: #CF005B;
+        }
+        .date{
+            font-size: 22;
+            margin-top: -15px;
+        }
+        .des{
+            margin: 5 5 5 6;
+            position: relative;
+            text-align:justify; 
+            text-justify:inter-ideograph;
+            height: 90px;
+            z-index: 1;
+            overflow:hidden; 
+            text-overflow:ellipsis;
+            display:-webkit-box; 
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp:3;
+        }
+        .qrcode{
+            width: 100%
+        }
+        .nongli{
+            padding-top: 0px;
+            width: 80px;
+            height: 145px;
+            margin:auto;
+            padding-right: 10px;
+        }
+        .nongli_bak{
+            padding-top: 0px;
+            width: 80px;
+            height: 160px;
+            margin:auto;
+            padding-right: 10px;
+        }        
+        .xxanniu{
+            width: 150px
+        }
+        .label1{
+            position: fixed;
+            top:0;
+            right: 0;
+            height: 100px;
+        }
+        .label2{
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            height: 70px;
+            z-index: -1;
+        }        
+    </style>
+
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="outer">
+            <div class="row">
+                <div class="col-3 left0">
+                    <div class="left1">
+                        <div class="nongli">
+                            <div id="n_yearlb" class="year"><p></p></div>
+                            <div id="n_monthlb" class="month"><p></p></div>
+                        </div>
+                    </div>
+
+                    <div class="left2">
+                        <div class="nongli_bak">
+                            <div id="tianjilb" class="tianji">
+                                <p></p>
+                            </div>
+                            <div id="tianjideclb" class="tianjidec">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 right" id="right_js">
+                    <img class="label1" src="./jiaobiao.png">    
+                    <h1 id="daylb" ></h1>
+                    <div id="shiyilb" class="shiyi">
+                        <p></p>
+                    </div>
+                    <p id="riqilb" class="date"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_des" id="des">
+        
+        <p id="desclb" class="des">
+        
+        </p>
+        <!--<p id="log"></p> -->
+        <img class="label2" src="./huazhuangshi.png">
+        <img class="xxanniu" id="xxanniu" src="./xiangxiyunshianniu.png">
+    </div>
+
+<script src="./js/jquery/jquery-1.11.3.min.js" ></script>
+<script type="text/javascript">
+$(window).load(function() {    
+    var body_height = document.body.clientHeight
+    console.log('body_height: '+document.body.clientHeight);
+    //document.getElementById("log").innerHTML = 'body_height: ' + body_height;
+
+    o = document.getElementById("right_js");
+    var h = o.clientHeight||o.offsetHeight;
+    console.log('right_js: '+h);
+    des = document.getElementById("des");
+    var des_h1 = des.clientHeight||des.offsetHeight;
+    console.log('des1: '+des_h1);
+
+    des_h2 = body_height - h - 20;
+    des.style.height = des_h2;
+    console.log('des: '+des.style.height);
+    
+    xxanniu = document.getElementById("xxanniu");
+    xxanniu.style.marginTop = des_h2 - des_h1 + 0 +'px';
+
+    desclb = document.getElementById("desclb");
+    desclb.style.top = (des_h2 - des_h1 - 10)/2 +'px';
+})   
+</script>
+
+</body>
+</html>

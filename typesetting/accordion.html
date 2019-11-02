@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" rel="stylesheet" href="./bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" rel="stylesheet" href="./js/jquery/jquery-3.4.1.min.js"></script>
+    <title>手风琴</title>
+    <style type="text/css">
+        button.accordion {
+        background-color: pink;
+        color: #444;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+        margin-bottom: 10px;
+    }
+    
+    button.accordion.active, button.accordion:hover {
+        background-color: pink;
+    }
+    
+    div.panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    
+    .new{
+        background: #eb6f70;
+        color: white;
+        display: inline-block;
+        border-radius: 2px;
+        line-height: 1.5;
+        padding: 3px 5px 2px 5px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+        font-size: 12px
+    }
+    
+    #plus{
+    }
+    #plusdiv{
+        float: left;
+        width: 10px;
+    }
+    #cktip{
+        float: left;
+    }
+    .panel .row{
+        text-align: center;
+    }
+    </style>
+</head>
+ 
+<body>
+<h2>手风琴动画</h2>
+
+<button class="accordion">
+    <div id="plusdiv"><span id="plus">+</span></div>
+    <span id="cktip">请选择查看的星座</span>
+</button>
+<div class="panel container">
+        <div class="row">
+            <div class="col-3"><small class="new">♈白羊</small></div>
+            <div class="col-3"><small class="new">♉金牛</small></div>
+            <div class="col-3"><small class="new">♊双子</small></div>
+            <div class="col-3"><small class="new">♋巨蟹</small></div>
+            <div class="col-3"><small class="new">♌狮子</small></div>
+            <div class="col-3"><small class="new">♍处女</small></div>
+            <div class="col-3"><small class="new">♎天秤</small></div>
+            <div class="col-3"><small class="new">♏天蝎</small></div> 
+            <div class="col-3"><small class="new">♐射手</small></div>
+            <div class="col-3"><small class="new">♑摩羯</small></div>
+            <div class="col-3"><small class="new">♒水瓶</small></div>
+            <div class="col-3"><small class="new">♓双鱼</small></div>                         
+        </div>
+</div>
+
+</body>
+<script type="text/javascript">
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+      document.getElementById("plus").innerText='+';
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      document.getElementById("plus").innerText='-';
+    } 
+  }
+}
+</script>
+</html>

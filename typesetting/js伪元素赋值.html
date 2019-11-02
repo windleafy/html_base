@@ -1,0 +1,31 @@
+<style>
+p:after{content:'我是后缀'}
+.new{
+        background: #eb6f70;
+        color: white;
+        display: inline-block;
+        border-radius: 2px;
+        line-height: 1.0;
+        padding: 3px 5px 2px 5px;
+        margin-right: 5px;
+        font-size: 12px
+    }
+.new:after {content: '星座';}
+</style>
+<p>正文内容</p>
+<small class="new"></small>
+
+<script>
+var css=function(t,s){
+    s=document.createElement('style');
+    s.innerText=t;
+    document.body.appendChild(s);
+};
+
+document.onclick=function(){
+    var s = '修改一下';
+    var tmp = '\''+s+'\'';
+    css('p:after{content:'+tmp+'}');
+    css('.new:after{content:\'占卜\'}');
+};
+</script>
