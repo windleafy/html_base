@@ -1,0 +1,154 @@
+<html lang="zh-Hans" style="font-size: 10px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>全球首款命理交友app</title>
+    <style type="text/css">
+    body{
+        background: #000;
+    }
+    </style>
+</head>
+<body>
+  <script>
+    (function() {
+
+          var height = window.innerHeight,
+              width = document.body.clientWidth;
+          if (typeof height != 'number') {
+              height = document.body.clientHeight;
+          }
+          var ratio = height / width;
+          //alert(ratio);
+          //document.write('<style>.video-head-wrap{padding-bottom:' + ratio * 100 + '% !important;}.body-wrap{padding-top:' + ratio * 100 + '%;}</style>');
+          //根据视频原始长宽比，设定遮罩调试
+            video_h_o = 1280;
+            video_w_o = 720;
+            video_h_n = video_h_o * width / video_w_o;
+            document.write('<style>.phone-head-wrap{height:'+video_h_n+'px;}</style>');
+          /*
+          if ((ratio<=1.7)){document.write('<style>.phone-head-wrap{height:118%;}</style>');}
+          if ((ratio>1.7)&&(ratio<=1.8)) {document.write('<style>.phone-head-wrap{height:100%;}</style>');}
+          if ((ratio>1.8)&&(ratio<=2.1)) {document.write('<style>.phone-head-wrap{height:88%;}</style>');}
+          if (ratio>2.1) {document.write('<style>.phone-head-wrap{height:82%;}</style>');}
+          */
+
+          //背景視頻為1280*720
+          if (ratio > (720 / 1280)) {
+              var leftOffset = -(height * 1280 / 720 - width) / 2;
+              document.write('<style>#video-bg{width:100%;margin-left:' + leftOffset + 'px;}</style>');
+          } else {
+              var topOffset = -(width * 720 / 1280 - height) / 2;
+              document.write('<style>#video-bg{width:100%;margin-top:' + topOffset + 'px;}</style>');
+          }
+      })();
+  </script>
+
+    <style>
+        .phone-head-wrap{
+            position: relative;
+            display: block;
+        }
+
+      #video-bg {
+          margin-left: 0;
+          z-index: -1;
+          width: 100%
+      }
+
+    .mask{
+        position: absolute;
+        width: 100%;
+        height: 735px;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(34, 34, 34, 0.8);
+    }
+    .apptitle{
+        position: absolute;
+        top:20;
+        width: 70%;
+    }
+    .header_bottom{
+        position: absolute;
+        bottom: 100;
+        text-align: center;
+    }
+    .video-container{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;        
+    }
+    </style>
+    <header class="phone-head-wrap" id="phone-head-wrap">
+        <div class="video-container">
+        <video id="video-bg" src="./resources/header264.mp4" preload="auto" muted autoplay playsinline loop x-webkit-airplay='true' x5-video-player-type='h5' type="video/mp4"></video>
+        <div class="mask" id="mask">     
+            <img class="apptitle" src="./resources/Wemeet.png">
+            <!--
+            <div class="log" style="color: #fff;">
+            <p id="para1">hello</p>
+            <p id="para2">hello</p>
+            <p id="para3">hello</p>
+            <p id="para4">hello</p>
+            <p id="para5">hello</p>
+            </div>                   
+            -->
+            <div class="header_bottom">
+                    <a href="http://wemeet-cn.oss-cn-beijing.aliyuncs.com/release/wemeet-release-latest.apk">
+                        <div style="font-size:30px; color:#fff;">全球首款命理社交app<br><br></div>
+                        <img style="height: 30px; " src="./resources/androiddownload-7af2fefe76.png">
+                    </a>
+            </div>
+        </div>
+        </div>
+    </header>
+    <div style="text-align: center; width: 100%; color: #fff; ">
+        <br>
+        <p style="font-size: 18px; font-weight: bold;">測算交友，微密懂你</p><br>
+        <div style="text-align:justify; text-justify:inter-ideograph; width: 220px;margin: auto;">
+        <p>採用人工智能算法，通過人臉，心理學幫你尋找最合適的人。</p><br>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    (function() {
+        //var h = document.getElementById('wind').clientHeight;
+        //console.log(h);
+        //o = document.getElementById('mask');
+        //o.style.height = h+2+'px';
+        /*
+        var h = document.body.clientHeight;
+        document.getElementById('para1').innerHTML="分辨率高度:"+h;
+
+        var h = document.getElementById('phone-head-wrap').clientHeight;
+        document.getElementById('para2').innerHTML="phone-head-wrap:"+h;
+
+        var h = document.body.clientWidth;;
+        document.getElementById('para3').innerHTML="分辨率宽度:"+h;
+
+        var h = document.getElementById('video-bg').clientHeight;
+        document.getElementById('para4').innerHTML="v-bg高度:"+h;
+        */
+        var h = document.getElementById('phone-head-wrap').clientHeight;
+        o = document.getElementById('mask');
+        o.style.height = h+'px';
+        /*
+        var h = document.getElementById('mask').clientHeight;
+        document.getElementById('para5').innerHTML="mask高度:"+h;
+        */
+    })();
+</script>
+</html>

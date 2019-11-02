@@ -1,0 +1,119 @@
+<html lang="zh-Hans" style="font-size: 10px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <link rel="icon" type="image/png" href="./resources/192.png" sizes="32x32">
+    <title>全球首款命理交友app</title>
+    <style type="text/css">
+    body{
+        background: #000;
+    }
+    </style>
+</head>
+<body>
+  <script>
+    /*
+    (function() {
+          var height = window.innerHeight,
+              width = document.body.clientWidth;
+          if (typeof height != 'number') {
+              height = document.body.clientHeight;
+          }
+            video_h_o = 1280;
+            video_w_o = 720;
+            video_h_n = video_h_o * width / video_w_o;
+            document.write('<style>.phone-head-wrap{height:'+video_h_n+'px;}</style>');
+      })();
+      */
+  </script>
+
+  <style>
+      .video-bg {
+        width: 100%;
+      }
+    .mask{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(34, 34, 34, 0.8);
+    }
+    .apptitle{
+        position: absolute;
+        top:20;
+        width: 70%;
+    }
+    .header_bottom{
+        position: absolute;
+        bottom: 200;
+        text-align: center;
+    }
+    .showcase{
+        width: 100%;
+        margin-bottom: 20;
+    }
+    </style>
+    <header class="phone-head-wrap" id="phone-head-wrap">
+        <video class="video-bg" id="wind"  src="./resources/header264.mp4" preload="auto" muted autoplay playsinline loop x-webkit-airplay='true' x5-video-player-type='h5' type="video/mp4"></video>
+        <div class="mask" id="mask">     
+            <img class="apptitle" src="./resources/Wemeet.png">
+            <div class="header_bottom">
+                    <a href="http://wemeet-cn.oss-cn-beijing.aliyuncs.com/release/wemeet-release-latest.apk">
+                        <div style="font-size:30px; color:#fff;">全球首款命理社交app<br><br></div>
+                        <img style="height: 30px; " src="./resources/androiddownload-7af2fefe76.png">
+                    </a>
+            </div>
+        </div>
+    </header>
+
+</body>
+<script type="text/javascript">
+    window.onload = function(){
+        console.log('Hello World1!');
+        var o = document.getElementById("wind");
+        var h = o.offsetHeight;
+        console.log(h);
+        alert(h);
+        document.getElementById('phone-head-wrap').style.height = h+'px';
+        document.getElementById('mask').style.height = h+'px';
+    };
+
+    (function () {
+        console.log('Hello World2!');
+        var o = document.getElementById("wind");
+        var h = o.offsetHeight;
+        console.log(h);        
+    })();
+
+$(document).ready(function (){
+        console.log('Hello World3!');
+        var o = document.getElementById("wind");
+        var h = o.offsetHeight;
+        console.log(h);
+        alert(h);
+        document.getElementById('phone-head-wrap').style.height = h+'px';
+        document.getElementById('mask').style.height = h+'px';
+});    
+
+$(window).load(function(){
+        console.log('Hello World4!');
+        var o = document.getElementById("wind");
+        var h = o.offsetHeight;
+        console.log(h);
+        alert(h);
+        document.getElementById('phone-head-wrap').style.height = h+'px';
+        document.getElementById('mask').style.height = h+'px';
+});
+</script>
+</html>
